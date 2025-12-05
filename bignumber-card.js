@@ -17,7 +17,7 @@ class BigNumberCard extends HTMLElement {
     if (!cardConfig.scale) cardConfig.scale = "50px";
     if (!cardConfig.from) cardConfig.from = "left";
     if (!cardConfig.opacity) cardConfig.opacity = "0.5";
-    if (!cardConfig.noneString) cardConfig.nonestring = null;
+    if (!cardConfig.noneString) cardConfig.noneString = null;
     if (!cardConfig.noneCardClass) cardConfig.noneCardClass = null;
     if (!cardConfig.noneValueClass) cardConfig.noneValueClass = null;
 
@@ -222,10 +222,18 @@ class BigNumberCard extends HTMLElement {
   set hass(hass) {
     const config = this._config;
     const root = this.shadowRoot;
+
+    // Check if entity exists to prevent crashes
+    const entity = hass.states[config.entity];
+    if (!entity) {
+      console.warn(`BigNumberCard: Entity ${config.entity} not found`);
+      return;
+    }
+
     const entityState = config.attribute
-      ? hass.states[config.entity].attributes[config.attribute]
-      : hass.states[config.entity].state;
-    const measurement = hass.states[config.entity].attributes.unit_of_measurement || "";
+      ? entity.attributes[config.attribute]
+      : entity.state;
+    const measurement = entity.attributes.unit_of_measurement || "";
 
     if (entityState !== this._entityState) {
       if (config.min !== undefined && config.max !== undefined) {

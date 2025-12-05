@@ -25,6 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - None/NaN detection bug now checks numeric value instead of formatted string (PR #46)
+- Fixed typo: `nonestring` → `noneString` for consistent property naming
+- Added error handling for missing/undefined entities to prevent crashes
+- Card now logs warning and gracefully handles non-existent entities
 
 ### Changed
 - Project forked as community continuation from [custom-cards/bignumber-card](https://github.com/custom-cards/bignumber-card)
