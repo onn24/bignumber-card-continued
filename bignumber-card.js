@@ -21,6 +21,11 @@ class BigNumberCard extends HTMLElement {
     if (!cardConfig.noneCardClass) cardConfig.noneCardClass = null;
     if (!cardConfig.noneValueClass) cardConfig.noneValueClass = null;
 
+    // NEW: Custom unit support
+    // Allows overriding entity's unit_of_measurement for display
+    // If undefined, falls back to entity attribute (original behavior)
+    if (cardConfig.unit === undefined) cardConfig.unit = null;
+
     // NEW: Custom font size support (PR #47 - issue #39)
     // Allows independent control of title and value font sizes separate from scale parameter
     // Defaults to null to maintain backwards compatibility with scale-based sizing
@@ -233,7 +238,9 @@ class BigNumberCard extends HTMLElement {
     const entityState = config.attribute
       ? entity.attributes[config.attribute]
       : entity.state;
-    const measurement = entity.attributes.unit_of_measurement || "";
+    // NEW: Support custom unit override
+    // Priority: config.unit (if defined) → entity.attributes.unit_of_measurement → empty string
+    const measurement = config.unit !== null ? config.unit : (entity.attributes.unit_of_measurement || "");
 
     if (entityState !== this._entityState) {
       if (config.min !== undefined && config.max !== undefined) {

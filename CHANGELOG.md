@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Actions: `more-info` (default), `toggle`, `call-service`, `navigate`, `url`, `none`
   - Fully backwards compatible (defaults to more-info)
   - Enables public dashboards, custom navigation, and service calls
+- Configurable custom unit display
+  - New `unit` option to override entity's `unit_of_measurement`
+  - Leave unset to use entity's default unit
+  - Set to empty string `""` to display no unit
+  - Examples: `unit: " %"`, `unit: " pancakes/hour"`, `unit: "°F"`
 
 ### Fixed
 - None/NaN detection bug now checks numeric value instead of formatted string (PR #46)

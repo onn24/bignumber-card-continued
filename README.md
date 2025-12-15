@@ -30,24 +30,7 @@ A simple card to display big numbers for sensors. It also supports severity leve
 
 ### HACS (Recommended)
 
-1. Open HACS in your Home Assistant instance
-2. Go to "Frontend"
-3. Click the three dots menu and select "Custom repositories"
-4. Add this repository URL with category "Lovelace"
-5. Find "Big Number Card - Continued" and install it
-6. Restart Home Assistant
-
-### Manual Installation
-
-1. Download `bignumber-card.js` from the latest release
-2. Copy it to your `config/www` folder
-3. Add the resource reference to your Lovelace configuration:
-   ```yaml
-   resources:
-     - url: /local/bignumber-card.js
-       type: module
-   ```
-4. Restart Home Assistant
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sxdjt&repository=bignumber-card-continued)
 
 ## Configuration Options
 
@@ -65,6 +48,7 @@ A simple card to display big numbers for sensors. It also supports severity leve
 | from | string | left | Direction from where the bar will start filling (must have min/max specified)
 | severity | list | optional | A list of severity objects. Items in list must be ascending based on 'value'
 | hideunit | boolean | optional | hide the unit of measurement if set to true. If absent, unit of measurement will be shown
+| unit | string | optional | Custom unit to display instead of entity's unit_of_measurement. Leave unset to use entity unit. Set to empty string "" to force no unit. Examples: " %", " pancakes/hour", "°F"
 | noneString | string | optional | String to use for value if value == None
 | noneCardClass | string | optional | CSS class to add to card if value == None
 | noneValueClass | string | optional | CSS class to add to value if value == None
