@@ -1,5 +1,7 @@
 # Big Number Card - Continued
 
+[![AI Assisted](https://img.shields.io/badge/AI-Claude%20Code-AAAAAA.svg)](https://claude.ai/code)
+
 IMPORTANT: This is a community-maintained continuation of the original [bignumber-card](https://github.com/custom-cards/bignumber-card) by [@ciotlosm](https://github.com/ciotlosm), which has not been actively maintained since January 2022.
 
 ## About This Continuation
